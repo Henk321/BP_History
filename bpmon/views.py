@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def bphistory(request):
+    return render(request, 'bpmon/bphistory.html')
