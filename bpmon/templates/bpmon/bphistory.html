@@ -4,11 +4,25 @@
     </head>
     <body>
         <div>
-            <h1><a href="/">Blood Pressure History</a></h1>
+            <h1> Previous BP Readings </h1>
+            {% for pressure in pressures %}
+            <p>
+            {{ pressure.systolic }}
+            {{ pressure.diastolic}}
+            {{ pressure.rate}}
+            {{ pressure.date}}
+            </p>
+            {% endfor %}
         </div>
 
         <div>
-          <h1><a href="/">Weight History</a></h1>
+          <h1> Previous Weight Readings </h1>
+          {% for weight in weights %}
+          <p>
+          {{ weight.wght }}
+          {{ weight.date }}
+          </p>
+          {% endfor %}
         </div>
 
     </body>

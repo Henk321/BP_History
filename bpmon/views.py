@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from .models import Pressure, Weight
+
 
 def bphistory(request):
-    return render(request, 'bpmon/bphistory.html')
+    pressures = Pressure.objects.all()
+    weights = Weight.objects.all()
+    return render(request, 'bpmon/bphistory.html', {'pressures': pressures,
+                                                    'weights': weights})
