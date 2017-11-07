@@ -1,0 +1,47 @@
+{% extends 'bpmon/base.html' %}
+
+{% block content%}
+        <div>
+        <h1><a href='/'>Previous BP Readings</a></h1>
+        <a>{{ plength }}</a>
+        <table style="width:70%">
+        <tbody>
+          <tr>
+            <th>Sys</th>
+            <th>Dis</th>
+            <th>Rate</th>
+            <th>Date</th>
+          </tr>
+          {% for pressure in pressures %}
+          <tr>
+            <td>{{ pressure.systolic }}</td>
+            <td>{{ pressure.diastolic }}</td>
+            <td>{{ pressure.rate }}</td>
+            <td>{{ pressure.date }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        </table>
+
+
+
+
+        <div>
+          <h1><a href="/">Previous Weight Readings</a></h1>
+          <table style="width:70%">
+          <tbody>
+            <tr>
+              <th>Weight</th>
+              <th>Date</th>
+            </tr>
+            {% for weight in weights %}
+            <tr>
+              <td>{{ weight.wght }}</td>
+              <td>{{ weight.date }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          </table>
+        </div>
+
+  {% endblock %}
