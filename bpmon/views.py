@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Pressure, Weight
 from .forms import PostForm
+from .add_wght import PostWght
 
 
 def bphistory(request):
@@ -22,3 +23,15 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'bpmon/post_edit.html', {'form': form})
+
+
+def add_weight(request):
+    if request.method == 'POST':
+        form = PostWght(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+
+    else:
+        form = PostWght()
+    return render(request, 'bpmon/add_weight.html', {'form': form})
