@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Pressure, Weight
-from .forms import PostForm
+from .add_bp import PostBP
 from .add_wght import PostWght
 
 
@@ -13,16 +13,16 @@ def bphistory(request):
                                                     'plength': plength, })
 
 
-def post_new(request):
+def add_blood_pressure(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostBP(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
 
     else:
-        form = PostForm()
-    return render(request, 'bpmon/post_edit.html', {'form': form})
+        form = PostBP()
+    return render(request, 'bpmon/add_bp.html', {'form': form})
 
 
 def add_weight(request):
